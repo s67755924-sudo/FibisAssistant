@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Голосовые функции -->
+    <PreferenceCategory app:title="Голосовые функции">
+
+        <SwitchPreferenceCompat
+            app:key="voice_activation"
+            app:title="Фоновая активация"
+            app:summary="Открывать Фибис по слову 'Фибис'"
+            app:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            app:key="tts_enabled"
+            app:title="Озвучка ответов"
+            app:summary="Озвучивать ответы Фибиса"
+            app:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            app:key="voice_input"
+            app:title="Голосовой ввод"
+            app:summary="Отправлять сообщения голосом"
+            app:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Интерфейс -->
+    <PreferenceCategory app:title="Интерфейс">
+
+        <SwitchPreferenceCompat
+            app:key="animations_enabled"
+            app:title="Анимации"
+            app:summary="Плавные анимации интерфейса"
+            app:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            app:key="dark_theme"
+            app:title="Темная тема"
+            app:summary="Использовать темную тему"
+            app:defaultValue="true" />
+
+        <ListPreference
+            app:key="message_bubbles"
+            app:title="Вид сообщений"
+            app:summary="Стиль отображения сообщений"
+            app:entries="@array/message_styles"
+            app:entryValues="@array/message_style_values"
+            app:defaultValue="bubbles" />
+
+    </PreferenceCategory>
+
+    <!-- AI и Функции -->
+    <PreferenceCategory app:title="AI и Функции">
+
+        <SwitchPreferenceCompat
+            app:key="web_search"
+            app:title="Веб-поиск"
+            app:summary="Искать информацию в интернете"
+            app:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            app:key="weather_enabled"
+            app:title="Погода"
+            app:summary="Показывать информацию о погоде"
+            app:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            app:key="music_control"
+            app:title="Управление музыкой"
+            app:summary="Управлять музыкальными плеерами"
+            app:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Уведомления -->
+    <PreferenceCategory app:title="Уведомления">
+
+        <SwitchPreferenceCompat
+            app:key="notifications_enabled"
+            app:title="Уведомления"
+            app:summary="Показывать уведомления"
+            app:defaultValue="true" />
+
+        <SwitchPreferenceCompat
+            app:key="sound_notifications"
+            app:title="Звук уведомлений"
+            app:summary="Воспроизводить звук при уведомлениях"
+            app:defaultValue="false" />
+
+        <SwitchPreferenceCompat
+            app:key="vibration_notifications"
+            app:title="Вибрация"
+            app:summary="Вибрация при уведомлениях"
+            app:defaultValue="true" />
+
+    </PreferenceCategory>
+
+    <!-- Конфиденциальность -->
+    <PreferenceCategory app:title="Конфиденциальность">
+
+        <SwitchPreferenceCompat
+            app:key="save_history"
+            app:title="Сохранять историю"
+            app:summary="Сохранять историю разговоров"
+            app:defaultValue="true" />
+
+        <Preference
+            app:title="Очистить историю"
+            app:summary="Удалить все сохраненные разговоры" />
+
+        <Preference
+            app:title="Экспорт данных"
+            app:summary="Сохранить данные на устройство" />
+
+    </PreferenceCategory>
+
+    <!-- О приложении -->
+    <PreferenceCategory app:title="О приложении">
+
+        <Preference
+            app:title="Версия"
+            app:summary="1.0.0" />
+
+        <Preference
+            app:title="Лицензия"
+            app:summary="MIT License" />
+
+        <Preference
+            app:title="Политика конфиденциальности"
+            app:summary="Читать политику" />
+
+        <Preference
+            app:title="Условия использования"
+            app:summary="Читать условия" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

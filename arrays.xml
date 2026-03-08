@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="message_styles">
+        <item>Пузырьки</item>
+        <item>Карточки</item>
+        <item>Минималистичный</item>
+    </string-array>
+
+    <string-array name="message_style_values">
+        <item>bubbles</item>
+        <item>cards</item>
+        <item>minimal</item>
+    </string-array>
+</resources>

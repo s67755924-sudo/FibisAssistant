@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fitsSystemWindows="true">
+
+    <!-- Верхняя панель (минималистичная) -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent"
+            app:title=""
+            app:titleTextColor="@color/text_primary"
+            app:navigationIcon="@drawable/ic_settings"
+            app:menu="@menu/main_menu"
+            app:elevation="0dp"
+            style="@style/Widget.MaterialComponents.Toolbar" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Основной контент -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- RecyclerView для чата -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chat_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:paddingHorizontal="16dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- Нижняя панель с полем ввода -->
+        <LinearLayout
+            android:id="@+id/bottom_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/surface"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Статусная строка (невидимая по умолчанию) -->
+            <TextView
+                android:id="@+id/status_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Готов к работе"
+                android:textColor="@color/text_hint"
+                android:textSize="12sp"
+                android:paddingBottom="8dp"
+                android:visibility="gone"
+                android:gravity="center" />
+
+            <!-- Контейнер для поля ввода и кнопок -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Кнопка прикрепления файлов -->
+                <ImageView
+                    android:id="@+id/attach_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_attach"
+                    android:scaleType="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="@color/text_hint"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Поле ввода сообщения -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Сообщение..."
+                    app:hintTextColor="@color/text_hint"
+                    app:boxStrokeColor="@color/input_stroke"
+                    app:boxBackgroundColor="@color/input_bg"
+                    app:endIconMode="custom"
+                    app:endIconDrawable="@drawable/ic_send"
+                    app:endIconTint="@color/accent_primary">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/message_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:maxLines="4"
+                        android:minLines="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:imeOptions="actionSend"
+                        android:inputType="textCapSentences|textMultiLine" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Кнопка голосового ввода -->
+                <ImageView
+                    android:id="@+id/voice_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_mic_outline"
+                    android:scaleType="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:tint="@color/accent_primary"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Анимация голосового ввода (Lottie) -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/voice_animation"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        app:lottie_rawRes="@raw/voice_waves"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
